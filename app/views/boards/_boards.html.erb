@@ -1,0 +1,31 @@
+<% @board.each do |board| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="board-id-<%= board.id %>">
+      <div class="card">
+        <%= image_tag 'board_placeholder.png', class: 'card-img-top', size: '300x200' %>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">
+              <%= board.title %>
+            </a>
+          </h4>
+          <div class='mr10 float-right'>
+            <a href="#" class="pr-1"><i class="fas fa-trash"></i></a>
+            <a href="#"><i class="far fa-edit"></i></a>
+          </div>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <i class="fas fa-trash"></i>
+              <%= board.user.decorate.full_name %>
+            </li>
+            <li class="list-inline-item">
+              <i class="far fa-calendar"></i>
+              <%= l board.created_at, format: :long %>
+            </li>
+          </ul>
+          <p class="card-text"><%= board.body %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
