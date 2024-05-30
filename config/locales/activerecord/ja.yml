@@ -12,6 +12,7 @@ ja:
       board:
         title: タイトル
         body: 内容
+        board_image: サムネイル
   user_sessions:
     create: 
       success: ログインしました
