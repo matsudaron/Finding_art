@@ -78,3 +78,4 @@ gem 'sorcery', "0.16.3"
 gem "pry-byebug"
 gem 'rails-i18n', '~> 7.0.0'
 gem 'draper'
+gem 'carrierwave'
