@@ -1,7 +1,7 @@
 ja:
   helpers:
     submit:
-      create: 登録
+      create: 投稿
       submit: 保存
       update: 更新
     label:
@@ -20,6 +20,8 @@ ja:
   boards:
     new:
       title: 投稿作成
+    show:
+      title: 投稿詳細
   header:
     login: ログイン
     logout: ログアウト

@@ -1,4 +1,7 @@
 ja:
+  defaults:
+    message:
+      require_login: ログインしてください
   activerecord:
     models:
       user: ユーザー
@@ -13,6 +16,8 @@ ja:
         title: タイトル
         body: 内容
         board_image: サムネイル
+      comment:
+        body: コメント
   user_sessions:
     create: 
       success: ログインしました
@@ -27,3 +32,7 @@ ja:
     create:
       success: 投稿を作成しました
       fail: 投稿作成に失敗しました
+  comments:
+    create:
+      success: コメントを投稿しました
+      fail: コメント投稿に失敗しました

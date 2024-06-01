@@ -1,31 +1,26 @@
 <% @board.each do |board| %>
-  <div class="col-sm-12 col-lg-4 mb-3">
-    <div id="board-id-<%= board.id %>">
-      <div class="card">
-        <%= image_tag board.board_image.url, class: 'card-img-top', size: '300x200' %>
-        <div class="card-body">
-          <h4 class="card-title">
-            <a href="#">
-              <%= board.title %>
-            </a>
-          </h4>
-          <div class='mr10 float-right'>
-            <a href="#" class="pr-1"><i class="fas fa-trash"></i></a>
-            <a href="#"><i class="far fa-edit"></i></a>
+    <div class="col-sm-12 col-lg-4 mb-3">
+      <div id="board-id-<%= board.id %>">
+        <div class="card">
+          <%= image_tag board.board_image.url, class: 'card-img-top', size: '300x200' %>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h4 class="card-title mb-0">
+                <%= link_to board.title, board_path(board) %>
+              </h4>
+              <%= render partial: 'boards/crud_menus', locals: { board: board } %>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item"><i class="bi bi-person"></i> <%= "#{board.user.first_name} #{board.user.last_name}" %></li>
+                <br>
+                <li class="list-inline-item"><i class="bi bi-calendar"></i> <%= board.created_at.strftime("%Y/%m/%d %H:%M") %></li>
+              </ul>
+            </div>
+            <p class="card-text d-flex justify-content-between align-items-center"><%= board.body %></p>
           </div>
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <i class="fas fa-trash"></i>
-              <%= board.user.decorate.full_name %>
-            </li>
-            <li class="list-inline-item">
-              <i class="far fa-calendar"></i>
-              <%= l board.created_at, format: :long %>
-            </li>
-          </ul>
-          <p class="card-text"><%= board.body %></p>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  
