@@ -1,0 +1,14 @@
+<% if current_user&.own?(board) %>
+  <ul class='crud-menu-btn list-inline mb-0'>
+    <li class="list-inline-item">
+      <%= link_to '#', id: "button-edit-#{board.id}" do %>
+        <i class="fas fa-pen"></i>
+      <% end %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to '#', id: "button-delete-#{board.id}" do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
