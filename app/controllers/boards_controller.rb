@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
-  before_action :require_login, only: %i[index new create]
+  before_action :require_login, only: %i[index new create edit update destroy]
+  before_action :set_board, only: %i[edit update destroy]
   
   def index
     @boards = Board.all.includes(:user).order(created_at: :desc)
@@ -24,8 +25,28 @@ class BoardsController < ApplicationController
     @comment = Comment.new
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
+
+  def edit; end
+
+  def update
+    if @board.update(board_params)
+      redirect_to @board, success: t('.success', item: Board.model_name.human)
+    else
+      flash.now[:danger] = t('.fail', item: Board.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @board.destroy!
+    redirect_to root_path, success: t('.success', item: Board.model_name.human)
+  end
   
   private
+
+  def set_board
+    @board = current_user.boards.find(params[:id])
+  end
   
   def board_params
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)

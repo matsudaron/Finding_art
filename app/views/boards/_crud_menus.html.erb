@@ -1,12 +1,12 @@
 <% if current_user&.own?(board) %>
   <ul class='crud-menu-btn list-inline mb-0'>
     <li class="list-inline-item">
-      <%= link_to '#', id: "button-edit-#{board.id}" do %>
+      <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %>
         <i class="fas fa-pen"></i>
       <% end %>
     </li>
     <li class="list-inline-item">
-      <%= link_to '#', id: "button-delete-#{board.id}" do %>
+      <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' } do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </li>

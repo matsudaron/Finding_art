@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	  if comment.save
 		redirect_to board_path(comment.board), success: t('.success', item: Comment.model_name.human)
 	  else
-		redirect_to board_path(comment.board), danger: t('.fail', item: Comment.model_name.human) 
+		redirect_to board_path(comment.board), danger: t('.fail', item: Comment.model_name.human)
       end
   end
 

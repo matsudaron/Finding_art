@@ -18,6 +18,7 @@ ja:
         board_image: サムネイル
       comment:
         body: コメント
+
   user_sessions:
     create: 
       success: ログインしました
@@ -32,6 +33,11 @@ ja:
     create:
       success: 投稿を作成しました
       fail: 投稿作成に失敗しました
+    update:
+      success: 投稿を更新しました
+      fail: 投稿更新に失敗しました
+    destroy:
+      success: 投稿を削除しました
   comments:
     create:
       success: コメントを投稿しました

@@ -1,18 +1,22 @@
 <%= form_with model: board, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
+  <br>
   <div class="form-group">
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
+  <br>
   <div class="form-group">
     <%= f.label :board_image %>
     <%= f.file_field :board_image, class: 'form-control mb-3', accept: 'image/*', onchange: 'previewImage(preview)' %>
     <%= f.hidden_field :board_image_cache %>
   </div>
+
   <div class="mt-3 mb-3" id="preview-container" style="display: none;">
     <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
   </div>

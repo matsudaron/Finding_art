@@ -4,6 +4,7 @@ ja:
       create: 投稿
       submit: 保存
       update: 更新
+      comment: コメントする
     label:
       email: メールアドレス
       password: パスワード
@@ -22,6 +23,8 @@ ja:
       title: 投稿作成
     show:
       title: 投稿詳細
+    edit:
+      title: 投稿編集
   header:
     login: ログイン
     logout: ログアウト
