@@ -3,7 +3,7 @@
     <div class="col-12">
       <h1><%= t('.title') %></h1>
       <% if @boards.present? %>
-        <%= render partial: 'boards/boards', collection: @boards, as: :board %>
+        <%= render partial: 'boards/boards', locals: { boards: @boards } %>
       <% else %>
         <p><%= t('.no_result') %></p>
       <% end %>
