@@ -25,6 +25,8 @@ ja:
       title: 投稿詳細
     edit:
       title: 投稿編集
+    bookmarks:
+      no_result: まだお気に入りはありません
   header:
     login: ログイン
     logout: ログアウト
