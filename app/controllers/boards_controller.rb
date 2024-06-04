@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :require_login, only: %i[index new create edit update destroy]
+  before_action :require_login, only: %i[index new create edit update destroy bookmarks]
   before_action :set_board, only: %i[edit update destroy]
   
   def index
@@ -40,6 +40,11 @@ class BoardsController < ApplicationController
   def destroy
     @board.destroy!
     redirect_to root_path, success: t('.success', item: Board.model_name.human)
+  end
+
+  def bookmarks
+    @bookmark_boards = current_user.bookmarked_boards.sort_by(&:created_at).reverse
+    @bookmark_boards = [] if @bookmark_boards.empty?
   end
   
   private

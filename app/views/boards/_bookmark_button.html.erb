@@ -1,0 +1,5 @@
+<% if current_user && current_user.bookmark?(board) %>
+  <%= render partial: 'boards/unbookmark', locals: { board: board } %>
+<% else %>
+  <%= render partial: 'boards/bookmark', locals: { board: board } %>
+<% end %>
