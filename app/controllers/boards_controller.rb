@@ -43,8 +43,7 @@ class BoardsController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_boards = current_user.bookmarked_boards.sort_by(&:created_at).reverse
-    @bookmark_boards = [] if @bookmark_boards.empty?
+    @bookmark_boards = current_user.bookmarked_boards.includes(:user).order(created_at: :desc).page(params[:page])
   end
   
   private

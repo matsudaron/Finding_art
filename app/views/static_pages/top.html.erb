@@ -17,11 +17,9 @@
 		      </div>
 	      </form>
 	    </div>
+	  <!-- 投稿一覧 -->
+	  <%= render partial: 'boards/boards', locals: { boards: @boards } %>
+      <%= paginate @boards %>
     </div>
-  </div>
-
-<!-- 投稿一覧 -->
-  <div class="row">
-    <%= render 'boards/boards', boards: @boards %>
   </div>
 </div>
