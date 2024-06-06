@@ -1,4 +1,4 @@
-<tr id="comment-<%= comment.id %>">
+<tr id="<%= dom_id(comment) %>">
   <td style="width: 60px">
     <%= image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50' %>
   </td>
@@ -15,17 +15,12 @@
   </td>
 
   <% if current_user.own?(comment) %>
-    <td class="action">
-      <ul class="list-inline justify-content-center" style="float: right;">
-        <li class="list-inline-item">
-          <a href="#" class='js-edit-comment-button' data-comment-id="<%= comment.id %>">
-          <i class="fas fa-pen"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#" class='js-edit-comment-button' data-comment-id="<%= comment.id %>">
+    <td class="action text-end">
+      <ul class="mb-0">
+        <li class="d-inline-block">
+          <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete, confirm: "Are you sure?" do %>
             <i class="fas fa-trash"></i>
-          </a>
+          <% end %>
         </li>
       </ul>
     </td>

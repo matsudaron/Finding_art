@@ -1,10 +1,11 @@
-<div class="row mb-3">
-  <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: comment, url: [board, comment], local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control mb-3', row: 4,  placeholder: Comment.human_attribute_name(:コメントを入力してください) %>
-      <%= f.submit t('helpers.submit.comment'), class: 'btn btn-primary' %>
-    <% end %>
+<%= turbo_frame_tag "new_comment" do %>
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <%= form_with model: [board, comment], local: false, id: "js-new-comment-form" do |f| %>
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control mb-3', rows: 4, placeholder: Comment.human_attribute_name(:コメントを入力してください), id: 'js-new-comment-body' %>
+        <%= f.submit t('helpers.submit.comment'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
