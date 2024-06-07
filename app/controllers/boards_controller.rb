@@ -3,7 +3,9 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
   
   def index
-    @boards = Board.all.includes(:user).order(created_at: :desc)
+    @q = Board.ransack(params[:q])
+    @boards = @q.result(distinct: true).includes(:user).page(params[:page]).order('created_at desc')
+    render 'static_pages/top'
   end
   
   def new
