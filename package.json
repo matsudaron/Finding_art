@@ -4,11 +4,13 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^8.0.4",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "esbuild": "^0.21.4",
-    "sass": "^1.77.2"
+    "sass": "^1.77.2",
+    "stimulus": "^3.2.2"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",

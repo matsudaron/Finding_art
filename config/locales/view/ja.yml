@@ -4,6 +4,7 @@ ja:
       create: 投稿
       submit: 保存
       update: 更新
+      edit: 編集
       comment: コメントする
     label:
       email: メールアドレス
@@ -27,10 +28,8 @@ ja:
       title: 投稿編集
     bookmarks:
       no_result: まだお気に入りはありません
-  header:
-    login: ログイン
-    logout: ログアウト
-    create_user: 会員登録
-    create_board: 投稿作成
-    like: お気に入り
-    mypage: プロフィール
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
