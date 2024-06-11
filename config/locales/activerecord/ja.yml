@@ -48,3 +48,8 @@ ja:
     update:
       success: プロフィールを更新しました
       fail: プロフィールを更新出来ませんでした
+  password_resets:
+    create:
+      success: パスワードのリセット申請を送信しました
+    update:
+      success: パスワードを再度作成しました
