@@ -33,3 +33,9 @@ ja:
       title: プロフィール
     edit:
       title: プロフィール編集
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 申請
+    edit:
+      title: パスワード再作成
