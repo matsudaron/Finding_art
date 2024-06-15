@@ -87,3 +87,4 @@ gem 'bootstrap4-kaminari-views'
 gem 'ransack'
 gem 'config'
 gem "dotenv-rails"
+gem 'high_voltage'
