@@ -1,2 +1,7 @@
-// Entry point for your Sass build
-@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+@import 'top';
+
+body {
+  font-family: 'Noto Serif JP', serif; /* Google Fontsから取得したフォントファミリーを指定 */
+  font-weight: 500; /* 太字にするためにウェイトを700に設定 */
+}
