@@ -1,9 +1,9 @@
 <header>
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+  <nav class='navbar navbar-expand-lg navbar-light bg-light'>
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_tag 'Finding Art.png', width: '140px', height: '60px' %>
     <% end %>
-    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
@@ -19,11 +19,11 @@
           <%= link_to 'お気に入り', bookmarks_boards_path, class: 'nav-link' %>
         </li>
 
-        <li class='nav-item dropdown dropdown-slide'>
-          <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+        <li class='nav-item dropdown'>
+          <%= link_to '#', class: 'nav-link dropdown-toggle', role: 'button', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+            <%= image_tag current_user.avatar_url, class: 'rounded-circle mr-3', width: '40', height: '40' %>
           <% end %>
-          <div class='dropdown-menu dropdown-menu-end'>
+          <div class='dropdown-menu dropdown-menu-end' aria-labelledby='header-profile'>
             <%= link_to 'プロフィール', profile_path, class: 'dropdown-item' %>
             <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete, data: { turbo_method: :delete } %>
           </div>
