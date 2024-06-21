@@ -13,7 +13,7 @@ ja:
         full_name: 名前
         password: パスワード
         password_confirmation: パスワード確認
-        avatar: プロフィール画像
+        avatar: アイコン
       board:
         title: タイトル
         body: 内容
