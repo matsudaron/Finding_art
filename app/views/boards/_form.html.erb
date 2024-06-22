@@ -16,6 +16,13 @@
     <%= f.file_field :board_image, class: 'form-control mb-3', accept: 'image/*' %>
     <%= f.hidden_field :board_image_cache %>
   </div>
-
+  <br>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, autofocus: true, class: "form-control" %>
+  </div>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+  <br>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

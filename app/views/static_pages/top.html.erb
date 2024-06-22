@@ -19,6 +19,10 @@
           <%= render 'boards/search_form', q: @q, url: boards_path %>
         </div>
 
+		<!-- マップ表示 -->
+		<%= render partial: 'boards/map_top', locals: { boards: @boards } %>
+		<div class="mb-5"></div>
+
         <!-- 投稿一覧 -->
         <%= render partial: 'boards/boards', locals: { boards: @boards } %>
         <%= paginate @boards %>

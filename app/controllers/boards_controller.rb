@@ -47,7 +47,7 @@ class BoardsController < ApplicationController
   def bookmarks
     @bookmark_boards = current_user.bookmarked_boards.includes(:user).order(created_at: :desc).page(params[:page])
   end
-  
+
   private
 
   def set_board
@@ -55,6 +55,6 @@ class BoardsController < ApplicationController
   end
   
   def board_params
-    params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
+    params.require(:board).permit(:title, :body, :board_image, :board_image_cache, :address, :latitude, :longitude)
   end
 end
