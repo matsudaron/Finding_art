@@ -18,6 +18,7 @@ ja:
         title: タイトル
         body: 内容
         board_image: サムネイル
+        address: 住所
       comment:
         body: コメント
 

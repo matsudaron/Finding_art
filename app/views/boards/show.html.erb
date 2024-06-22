@@ -8,17 +8,26 @@
       <article class="card">
         <div class="card-body">
           <div class='row'>
+            <div class="d-flex justify-content-between align-items-start">
+              <h3 class="d-inline"><%= @board.title %></h3>
+              <%= render 'boards/board', board: @board %>
+            </div>
+            <hr>
             <div class='col-md-3'>
               <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
             </div>
             <div class='col-md-9'>
-              <div class="d-flex justify-content-between align-items-start">
-                <h3 class="d-inline"><%= @board.title %></h3>
-                <%= render 'boards/board', board: @board %>
-              </div>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @board.user.decorate.full_name %></li>
+                <i class="bi bi-person-fill"></i>
+                <li class="list-inline-item"><%= @board.user.decorate.full_name %></li>
+              </ul>
+              <ul class="list-inline">
+                <i class="bi bi-calendar-date-fill"></i>
                 <li class="list-inline-item"><%= l @board.created_at, format: :long  %></li>
+              </ul>
+              <ul class="list-inline">
+                <i class="bi bi-geo-alt-fill"></i>
+                <li class="list-inline-item"><%= @board.address %></li>
               </ul>
             </div>
           </div>
@@ -27,6 +36,10 @@
       </article>
     </div>
   </div>
+  
+  <!-- マップ表示 -->
+  <%= render partial: 'boards/map_show', locals: { boards: @boards } %>
+  <div class="mb-5"></div>
 
   <% if logged_in? %>
     <!-- コメントフォーム -->

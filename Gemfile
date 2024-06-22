@@ -88,3 +88,5 @@ gem 'ransack'
 gem 'config'
 gem "dotenv-rails"
 gem 'high_voltage'
+gem 'geocoder'
+gem 'importmap-rails'
