@@ -1,23 +1,23 @@
 <% content_for(:title, "プロフィール詳細 - Finding Art") %>
-<div class="text-center mt-5 mb-2">
-  <h1><%= t('.title') %></h1>
-  <h5><i class="bi bi-pencil-fill"></i>プロフィールを編集するには、アイコンをクリックしてください<i class="bi bi-pencil-fill"></i></h5>
-</div>
-<div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <div class="text-center mb-4">
-        <%= link_to edit_profile_path do %>
-          <%= image_tag current_user.avatar.url, class: 'rounded-circle', size: '200x200' %>
-        <% end %>
+<div class="profile-main">
+  <div class="text-center profile-main-wrapper mb-5">
+    <h1><%= t('.title') %></h1>
+    <h5><i class="bi bi-pencil-fill"></i>プロフィールを編集するには、アイコンをクリックしてください<i class="bi bi-pencil-fill"></i></h5>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="text-center mb-4">
+          <%= link_to edit_profile_path do %>
+            <%= image_tag current_user.avatar.url, class: 'rounded-circle', size: '200x200' %>
+          <% end %>
+        </div>
+        <h3 class="text-center mb-5">
+          <%= current_user.decorate.full_name %>
+          <br>
+          <%= current_user.email %>
+        </h3>
       </div>
-      <h1 class="text-center mb-5"><%= current_user.decorate.full_name %></h1>
-      <table class="table">
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:email) %></th>
-          <td><%= current_user.email %></td>
-        </tr>
-      </table>
     </div>
   </div>
 </div>

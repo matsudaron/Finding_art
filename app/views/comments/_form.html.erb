@@ -1,10 +1,12 @@
 <%= turbo_frame_tag "new_comment" do %>
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
+  <div class="row mb-3 d-flex justify-content-center">
+    <div class="col-lg-10">
       <%= form_with model: [board, comment], local: false, id: "js-new-comment-form" do |f| %>
         <%= f.label :body %>
-        <%= f.text_area :body, class: 'form-control mb-3', rows: 4, placeholder: Comment.human_attribute_name(:コメントを入力してください), id: 'js-new-comment-body' %>
-        <%= f.submit t('helpers.submit.comment'), class: 'btn btn-primary' %>
+        <%= f.text_area :body, class: 'form-control mb-3', rows: 4, placeholder: Comment.human_attribute_name(:気になった投稿にコメントしよう), id: 'js-new-comment-body'%>
+        <div class="d-flex justify-content-end">
+          <%= f.submit t('helpers.submit.comment'), class: 'btn btn-success'%>
+        </div>
       <% end %>
     </div>
   </div>

@@ -26,6 +26,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @comment = Comment.new
     @comments = @board.comments.includes(:user).order(created_at: :desc)
+    @bookmarks_count = @board.bookmarks_count
   end
 
   def edit; end

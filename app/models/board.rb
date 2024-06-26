@@ -4,7 +4,7 @@ class Board < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   geocoded_by :address
-  after_validation :geocode
+  before_validation :geocode
 
   validates :title, presence: true, length: { maximum: 255, minimum: 3 }
   validates :body, presence: true, length: { maximum: 65_535 }
@@ -17,6 +17,10 @@ class Board < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     ["bookmarks", "comments", "user"]
+  end
+
+  def bookmarks_count
+    bookmarks.count
   end
 
   private
