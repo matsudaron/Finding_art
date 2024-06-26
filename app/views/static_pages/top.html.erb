@@ -4,12 +4,15 @@
     <div class="container pt-3">
       <div class="row">
         <% unless logged_in? %>
-          <div class="text-center">
-            <%= image_tag 'Finding Art2.png', class: 'responsive-img', alt: 'Finding Art Image' %>
-            <h4>日本全国の芸術に関する投稿を探すことができたり、</h4>
-            <h4>あなたの知っている芸術を投稿したりできます</h4>
-            <h4>掲載記事のジャンルは全⚪︎種類！</h4>
-            <h4>あなたにぴったりなコンテンツが見つかること間違いなしです</h4>
+          <div class="text-center mt-3">
+            <%= image_tag 'Finding Art.png', class: 'responsive-img', alt: 'Finding Art Image' %>
+            <h4>このwebアプリでは、日本全国・世界中の芸術に関する投稿を探すことができたり、</h4>
+            <h4>あなたの知っているちょっとした芸術を投稿したりできます</h4>
+			<br>
+            <h4>投稿された記事はマップに表示されるので、現地に赴くのもアリ！</h4>
+			<br>
+			<br>
+            <h4>さあ、芸術をシェアしよう</h4>
             <br>
           </div>
         <% end %>
@@ -24,8 +27,11 @@
 		<div class="mb-5"></div>
 
         <!-- 投稿一覧 -->
+		<h4 class="title-underline2 mt-5 mb-5"><%= t('.title') %></h4>
         <%= render partial: 'boards/boards', locals: { boards: @boards } %>
-        <%= paginate @boards %>
+		<div class="d-flex justify-content-center">
+		  <%= paginate @boards, class: 'pagination' %>
+	    </div>	  
       </div>
     </div>
   </div>

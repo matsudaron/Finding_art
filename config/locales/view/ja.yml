@@ -1,10 +1,10 @@
 ja:
   helpers:
     submit:
-      create: 投稿
-      submit: 保存
-      update: 更新
-      edit: 編集
+      create: 投稿する
+      submit: 保存する
+      update: 更新する
+      edit: 編集する
       comment: コメントする
     label:
       email: メールアドレス
@@ -12,13 +12,17 @@ ja:
   user_sessions:
     new:
       title: ログイン
-      login: ログイン
+      create: ログインする
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
   users:
     new:
-      title: 会員登録
+      title: ユーザー登録
       to_login_page: ログインページへ
+      create: 登録する
+  static_pages:
+    top:
+      title: 投稿一覧
   boards:
     new:
       title: 投稿作成
@@ -36,6 +40,9 @@ ja:
   password_resets:
     new:
       title: パスワードリセット申請
-      submit: 申請
+      submit: 申請する
     edit:
-      title: パスワード再作成
+      title: パスワード再設定
+  contacts:
+    new:
+      submit: 送信する

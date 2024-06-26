@@ -1,0 +1,33 @@
+.profile-main-wrapper {
+  margin-top: 200px;  /* 上部のマージン */
+  margin-bottom: 20px;  /* 下部のマージン */
+}
+
+.profile-main {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* ビューポート全体の高さを確保 */
+  background-image: url("kelly-sikkema-Rq1MLxP5RgI-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  padding: 20px; /* コンテンツを背景から離す */
+  box-sizing: border-box; /* パディングを含めてサイズを計算 */
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* 半透明の白色 */
+  z-index: -1; /* 背景画像より後ろに配置 */
+}
+
+.responsive-img {
+  max-width: 80%;
+  height: auto;
+}

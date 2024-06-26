@@ -1,6 +1,6 @@
 <tr id="<%= dom_id(comment) %>">
   <td style="width: 60px">
-    <%= image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50' %>
+    <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
   </td>
   <td>
     <h3 class="small"><%= comment.user.decorate.full_name %></h3>
@@ -9,20 +9,21 @@
     </div>
     <div id="js-textarea-comment-box-<%= comment.id %>" style="display: none;">
       <textarea id="js-textarea-comment-<%= comment.id %>" class="form-control mb-1"><%= comment.body %></textarea>
-      <button class="btn btn-light js-button-edit-comment-cancel" data-comment-id="<%= comment.id %>">キャンセル</button>
-      <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
     </div>
   </td>
 
-  <% if current_user.own?(comment) %>
-    <td class="action text-end">
-      <ul class="mb-0">
+  <td class="action text-end">
+    <ul class="mb-0">
+      <li class="d-inline-block">
+        <p class="text-muted"><%= l(comment.created_at, format: :long) %></p>
+      </li>
+      <% if current_user.own?(comment) %>
         <li class="d-inline-block">
           <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete, confirm: "Are you sure?" do %>
-            <i class="fas fa-trash"></i>
+            <i class="bi bi-trash3-fill"></i>
           <% end %>
         </li>
-      </ul>
-    </td>
-  <% end %>
+      <% end %>
+    </ul>
+  </td>
 </tr>

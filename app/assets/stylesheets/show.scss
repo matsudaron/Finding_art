@@ -19,23 +19,22 @@
   z-index: -1; /* 背景画像より後ろに配置 */
 }
 
-.responsive-img2 {
-  max-width: 80%;
-  height: auto;
-}
-
-h4.title-underline2 {
+h4.title-underline {
   text-align: center;
   position: relative;
   padding-bottom: 5px;
 }
 
-h4.title-underline2::after {
+h4.title-underline::after {
   content: '';
   position: absolute;
   left: 25%;
   bottom: 0;
   width: 50%;
   height: 4px;
-  background-color: darkolivegreen;
+  background-color: royalblue;
+}
+
+.bookmarks-count .bookmark-text {
+  font-weight: bold;
 }

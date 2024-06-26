@@ -1,31 +1,35 @@
-<%= form_with model: @contact, local: true do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-      <ul>
-        <% @contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<% content_for :title, "お問い合わせ - Finding Art" %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>お問い合わせフォーム</h1>
+      <%= form_with model: @contact, local: true do |f| %>
+        <% if @contact.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h2><%= pluralize(@contact.errors.count, "error") %> が発生しました：</h2>
+            <ul>
+              <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <div class="form-group mt-2 mb-2">
+          <%= f.label :name, 'お名前' %>
+          <%= f.text_field :name, class: 'form-control', required: true %>
+        </div>
+        <div class="form-group mt-2 mb-2">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control', required: true %>
+        </div>
+        <div class="form-group mt-2 mb-2">
+          <%= f.label :message, 'メッセージ' %>
+          <%= f.text_area :message, size: '10x10', class: 'form-control', required: true %>
+        </div>
+        <div class="d-flex justify-content-end mt-3 mb-2">
+          <%= f.submit class: 'btn btn-success', data: { turbo_confirm: '送信しますか？' } %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, class: 'form-control', required: true %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス*' %>
-    <%= f.email_field :email, class: 'form-control', required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control', required: true %>
-  </div>
-
-    <div class="actions">
-      <%= f.submit '送信', data: { turbo_confirm: '送信しますか？' } %>
-    </div>
-<% end %>
+</div>

@@ -1,10 +1,8 @@
 <% content_for :title, "ユーザー登録 - Finding Art" %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <br>
-      <h1>ユーザー登録</h1>
-      <br>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('users.new.title') %></h1>
       <%= form_with model: @user, local: true do |f| %>
         <div class="form-group">
           <%= f.label :last_name %>
@@ -31,10 +29,10 @@
           <%= f.file_field :avatar, class: "form-control", accept: 'image/*' %>
           <%= f.hidden_field :avatar_cache %>
         </div>
-        <br>
-        <%= f.submit '登録', class: 'btn btn-primary' %>
+        <div class="d-flex justify-content-end mt-3 mb-2">
+          <%= f.submit t('users.new.create'), class: 'btn btn-primary' %>
+        </div>
       <% end %>
-      <br>
     </div>
   </div>
 </div>

@@ -1,51 +1,89 @@
-<% content_for(:title, @board.title + " - Finding Art") %>
-<div class="container pt-5">
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
+<div class="container pt-5 pb-5 top-main">
+  <div class="row mb-3 justify-content-center">
+    <div class="col-lg-10">
+      <div class="text-md-center">
+        <h4 class="title-underline mb-5"><%= t('.title') %></h4>
+      </div>
       <br>
-      <!-- 掲示板内容 -->
+      <!-- 投稿内容 -->
       <article class="card">
-        <div class="card-body">
+        <div class="card-body text-start">
           <div class='row'>
-            <div class="d-flex justify-content-between align-items-start">
-              <h3 class="d-inline"><%= @board.title %></h3>
+            <div class="d-flex justify-content-between align-items-start mt-2 mb-2 text-center">
+              <h2 class="d-inline"><%= @board.title %></h2>
               <%= render 'boards/board', board: @board %>
             </div>
             <hr>
-            <div class='col-md-3'>
-              <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
+            <div class='d-flex justify-content-center mb-4'>
+              <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid mx-auto' %>
             </div>
-            <div class='col-md-9'>
-              <ul class="list-inline">
-                <i class="bi bi-person-fill"></i>
-                <li class="list-inline-item"><%= @board.user.decorate.full_name %></li>
-              </ul>
-              <ul class="list-inline">
-                <i class="bi bi-calendar-date-fill"></i>
-                <li class="list-inline-item"><%= l @board.created_at, format: :long  %></li>
-              </ul>
-              <ul class="list-inline">
-                <i class="bi bi-geo-alt-fill"></i>
-                <li class="list-inline-item"><%= @board.address %></li>
-              </ul>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="list-inline">
+                    <i class="bi bi-person-fill"></i>
+                    <li class="list-inline-item"><a>投稿者：　</a><%= @board.user.decorate.full_name %></li>
+                  </ul>
+                  <ul class="list-inline">
+                    <i class="bi bi-calendar-date-fill"></i>
+                    <li class="list-inline-item"><a>投稿日：　</a><%= l @board.created_at, format: :long  %></li>
+                  </ul>
+                  <ul class="list-inline">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <li class="list-inline-item"><a>住所：　</a><%= @board.address %></li>
+                  </ul>
+                </div>
+                <!-- マップ表示 -->
+                <div class="col-md-6">
+                  <div class="row justify-content-end">
+                    <div class="col-lg-12">
+                      <%= render partial: 'boards/map_show', locals: { boards: @boards } %>
+                      <div class="mb-1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <hr>
           <p><%= simple_format(@board.body) %></p>
         </div>
       </article>
     </div>
   </div>
-  
-  <!-- マップ表示 -->
-  <%= render partial: 'boards/map_show', locals: { boards: @boards } %>
-  <div class="mb-5"></div>
+</div>
 
-  <% if logged_in? %>
-    <!-- コメントフォーム -->
-    <%= render 'comments/form', { board: @board, comment: @comment } %>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="bookmarks-and-share d-flex justify-content-between align-items-center mb-5">
+        <div class="bookmarks-count ms-2">
+          <p class="bookmark-text"><i class="bi bi-suit-heart-fill" style="color: red;"></i><a>お気に入りにされた数：　</a><%= @bookmarks_count %></p>
+        </div>
+        <div class="share-buttons">
+          <a>シェアする：</a>
+          <a href="https://www.instagram.com/" target="_blank" class="btn btn-outline-dark me-2">
+            <i class="bi bi-instagram"></i>
+          </a>  
+          <a href="https://twitter.com/intent/tweet?url=<%= board_url(@board) %>&text=<%= @board.title %>" target="_blank" class="btn btn-outline-dark me-2">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://social-plugins.line.me/lineit/share?url=<%= board_url(@board) %>" target="_blank" class="btn btn-outline-dark me-2">
+            <i class="bi bi-line"></i>
+          </a>        
+          <a href="mailto:?subject=<%= @board.title %>&body=<%= board_url(@board) %>" class="btn btn-outline-dark me-2">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+        </div>
+      </div>
 
-    <!-- コメントエリア -->
-    <%= render 'comments/comments', { comments: @comments } %>
-  <% end %>
+      <% if logged_in? %>
+        <!-- コメントフォーム -->
+        <%= render 'comments/form', { board: @board, comment: @comment } %>
+
+        <!-- コメントエリア -->
+        <%= render 'comments/comments', { comments: @comments } %>
+      <% end %>
+    </div>
+  </div>
 </div>
