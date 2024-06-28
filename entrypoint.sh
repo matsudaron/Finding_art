@@ -2,10 +2,12 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
-rm -f /Finding_art/tmp/pids/server.pid
+rm -f /app/tmp/pids/server.pid
+
+# Navigate to the app directory
+cd /app
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
-bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 bundle exec rails db:migrate
