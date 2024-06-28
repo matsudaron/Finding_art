@@ -54,3 +54,6 @@ ja:
       success: パスワードのリセット申請を送信しました
     update:
       success: パスワードを再度作成しました
+  contacts:
+    create:
+      success: 問い合わせを受け付けました
