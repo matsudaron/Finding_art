@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       session[:contact_params] = @contact.attributes
-      redirect_to root_path, notice: "問い合わせを受け付けました。"
+      redirect_to root_path, success: t('.success')
     else
       render :new
     end
