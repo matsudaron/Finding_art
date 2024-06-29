@@ -26,8 +26,9 @@ class Board < ApplicationRecord
   private
 
   def validate_latitude_and_longitude
+    Rails.logger.debug "Latitude: #{latitude}, Longitude: #{longitude}"
     if latitude.blank? || longitude.blank?
-      errors.add(:address)
+      errors.add(:address, "緯度と経度が設定されていません")
     end
   end
 end
