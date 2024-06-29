@@ -14,12 +14,6 @@
     <%= f.file_field :board_image, class: 'form-control mb-3', accept: 'image/*' %>
     <%= f.hidden_field :board_image_cache %>
   </div>
-  <div class="form-group mt-2 mb-2">
-    <%= f.label :address %>
-    <%= f.text_field :address, autofocus: true, class: "form-control" %>
-    <%= f.hidden_field :latitude %>
-    <%= f.hidden_field :longitude %>
-  </div>
   <div class="d-flex justify-content-end mt-3 mb-4">
     <%= f.submit class: 'btn btn-success' %>
   </div>

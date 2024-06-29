@@ -3,13 +3,9 @@ class Board < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  geocoded_by :address
-  before_validation :geocode
 
   validates :title, presence: true, length: { maximum: 255, minimum: 3 }
   validates :body, presence: true, length: { maximum: 65_535 }
-  validates :address, presence: true
-  validate :validate_latitude_and_longitude
 
   def self.ransackable_attributes(auth_object = nil)
     ["board_image", "body", "created_at", "id", "title", "updated_at", "user_id"]
@@ -21,14 +17,5 @@ class Board < ApplicationRecord
 
   def bookmarks_count
     bookmarks.count
-  end
-
-  private
-
-  def validate_latitude_and_longitude
-    Rails.logger.debug "Latitude: #{latitude}, Longitude: #{longitude}"
-    if latitude.blank? || longitude.blank?
-      errors.add(:address, "緯度と経度が設定されていません")
-    end
   end
 end
