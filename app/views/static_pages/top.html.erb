@@ -4,15 +4,14 @@
     <div class="container pt-3">
       <div class="row">
         <% unless logged_in? %>
-          <div class="text-center mt-3">
+          <div class="text-center mt-3 mb-5">
             <%= image_tag 'Finding Art.png', class: 'responsive-img', alt: 'Finding Art Image' %>
             <h4>このwebアプリでは、日本全国・世界中の芸術に関する投稿を探すことができたり、</h4>
             <h4>あなたの知っているちょっとした芸術を投稿したりできます</h4>
 			<br>
-            <h4>投稿された記事はマップに表示されるので、現地に赴くのもアリ！</h4>
 			<br>
 			<br>
-            <h4>さあ、芸術をシェアしよう</h4>
+            <h1>さあ、芸術をシェアしよう</h1>
             <br>
           </div>
         <% end %>
@@ -21,10 +20,6 @@
         <div class="col-lg-10 offset-lg-1 mt-5 mb-4">
           <%= render 'boards/search_form', q: @q, url: boards_path %>
         </div>
-
-		<!-- マップ表示 -->
-		<%= render partial: 'boards/map_top', locals: { boards: @boards } %>
-		<div class="mb-5"></div>
 
         <!-- 投稿一覧 -->
 		<h4 class="title-underline2 mt-5 mb-5"><%= t('.title') %></h4>
